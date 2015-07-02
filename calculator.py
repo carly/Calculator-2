@@ -7,6 +7,14 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
+operator_dict = {"+": add,
+                 "-": subtract, 
+                 "*": multiply,
+                 "/": divide,
+                 "square": square,
+                 "cube": cube,
+                 "pow": power,
+                 "mod": mod}
 
 # Your code goes here
 while True: 
@@ -15,44 +23,29 @@ while True:
     tokens = entry_new.split(" ")
 
     operator = tokens[0]
-    
+
     if len(tokens) < 2 and operator == "q":
         break
+    elif operator not in operator_dict: 
+        print "Invalid entry. Try again."
 
-    num1 = int(tokens[1])
-    
+    if len(tokens) < 3: 
+        num1 = int(tokens[1])
+        opperands = "num1"
+
     if len(tokens) > 2:
         num2 = int(tokens[2])
     else:
         num2 = None    
 
+    
 
-    if operator == "+":
-        print add(num1, num2)
 
-    elif operator == "-":
-        print subtract(num1, num2)
 
-    elif operator == "*":
-        print multiply(num1, num2)
+    print operator_dict[operator]()
+    
 
-    elif operator == "/":
-        print divide(num1, num2)
-
-    elif operator == "square":
-        print square(num1)
-
-    elif operator == "cube":
-        print cube(num1)
-
-    elif operator == "pow":
-        print power(num1, num2)
-
-    elif operator == "mod":
-        print mod(num1, num2)
-
-    else: 
-        print "Invalid entry. Try again."
+    if 
 
 
 
