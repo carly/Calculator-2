@@ -15,6 +15,10 @@ while True:
     tokens = entry_new.split(" ")
 
     operator = tokens[0]
+    
+    if len(tokens) < 2 and operator == "q":
+        break
+
     num1 = int(tokens[1])
     
     if len(tokens) > 2:
@@ -23,10 +27,7 @@ while True:
         num2 = None    
 
 
-    if operator == "q":
-        file.close()
-
-    elif operator == "+":
+    if operator == "+":
         print add(num1, num2)
 
     elif operator == "-":
